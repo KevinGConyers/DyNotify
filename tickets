@@ -1,7 +1,7 @@
 ******************
 ticket: 1
 person: kevin
-status: open
+status: closed
 title: Begin Work
 ---
 I use a simple ticketing system to track all work done in a professional capacity.
@@ -9,6 +9,9 @@ As I work on a task, I open a branch in git, and then open a ticket. Once the ta
 
 ++ Taking a quick break to research amazon blocking
 -- Break Over
+
+Closing Notes:
+Bundling code into a binary and shipping
 ******************
 ******************
 ticket: 2
