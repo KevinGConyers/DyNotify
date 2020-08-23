@@ -1,0 +1,10 @@
+Tick Total,11:15:00 AM,02:32:00 PM,11:55:00 AM,12:36:00 PM,02:36:00,
+,,,,,,
+Task times,Start,End,Break start, Break End,Sub Total,
+,,,,,,
+Input and Search Request,11:17:00 AM,11:53:00 AM,0,0,00:36:00,
+Data Selection,12:35:00 PM,02:16:00 PM,0,0,01:41:00,
+,,,,,Total:,02:17:00
+,,,,,Diff task and ticket:,00:19:00
+Hours,Rate,Bill,,,,
+02:17:00,$10.00,$22.83,,,,
