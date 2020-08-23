@@ -20,3 +20,11 @@ Doing input validation and requesting the proper results page. Input will only a
 Closing Notes:
 Decided to allow the ' character for searches like "Men's Sunglasses" All other's still blocked.
 ******************
+******************
+ticket: 3
+person: kevin
+status: open
+title: Data Selection
+---
+Starting the Data Selection module.
+******************
