@@ -4,8 +4,11 @@ import sys
 import re
 import requests
 import traceback
+import json
 from lxml.html import fromstring
 from itertools import cycle
+from selectorlib import Extractor
+
 
 def validateQueury():
     if len(sys.argv) < 2:
@@ -67,7 +70,10 @@ def makeAmazonRequest(query, proxy):
                 return None
         elif r.status_code >= 200 and r.status_code <= 299:
             print(r.status_code)
-            return r # Short circuit as soon as a good request is recieved
+            results_extractor = Extractor.from_yaml_file('./search_data.yml')
+            data = results_extractor.extract(r.text)
+            print(data)
+            return data # Short circuit as soon as a good request is recieved
         else:
             print("Unhandled status code")
             return None
@@ -78,8 +84,14 @@ def makeAmazonRequest(query, proxy):
         #We will just skip retries as its beyond the scope of this tutorial and we are only downloading a single url 
         print("Skipping. Connnection error")
 
-    
 
+def extractAndSaveData(data):
+    print("starting data extraction")
+    with open('results.json', 'w') as result_file:
+        for prod in data['product']:
+            print(prod)
+            json.dump(prod, result_file)
+            result_file.write("\n")
 
 def main():
     q = validateQueury()
@@ -87,14 +99,18 @@ def main():
     proxies = initProxies()
     proxy_pool = cycle(proxies)
 
-    response = None
+    data = None
     for i in range(1,11):
         #Get a proxy from the pool
         proxy = next(proxy_pool)
         print("Request #%d"%i)
-        response = makeAmazonRequest(q, proxy)
-        if response:
+        data = makeAmazonRequest(q, proxy)
+        if data:
             break
+    if data != None:
+        extractAndSaveData(data)
+    else:
+        print("unspecified error with request")
 
 
 main()

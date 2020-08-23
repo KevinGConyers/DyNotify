@@ -12,6 +12,10 @@ product:
         css: 'h2 a.a-link-normal.a-text-normal'
         xpath: null
         type: Link
+    image:
+        css: '.a-section img'
+        type: Attribute
+        attribute: src
     rating:
         css: 'div.a-row.a-size-small span:nth-of-type(1)'
         xpath: null
