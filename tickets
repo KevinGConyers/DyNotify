@@ -7,3 +7,11 @@ title: Begin Work
 I use a simple ticketing system to track all work done in a professional capacity.
 As I work on a task, I open a branch in git, and then open a ticket. Once the task is finished, I close the ticket and merge the branch into master. The commit history on the ticket opening and closing easily allows me to see how much time is spent on a given task, and can be verified by the branches commit history.
 ******************
+******************
+ticket: 2
+person: kevin
+status: open
+title: Input and Search Request
+---
+Doing input validation and requesting the proper results page. Input will only allow [a-zA-Z0-9] and the space character. Input expected as command line argument.
+******************
