@@ -24,8 +24,11 @@ Decided to allow the ' character for searches like "Men's Sunglasses" All other'
 ******************
 ticket: 3
 person: kevin
-status: open
+status: closed
 title: Data Selection
 ---
 Starting the Data Selection module.
+
+Closing Notes:
+Properly Selecting and outpute the Title, URL, Price, Image, and ratings fields to JSON
 ******************
