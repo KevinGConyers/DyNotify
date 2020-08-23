@@ -15,4 +15,5 @@ No need to use quotes, all words in query are assumed to be part of one query.
 
 ## Billing
 As I stated in my delivery, I expect to be compensated for my time.
+
 [paypal](https://www.paypal.com/paypalme/ShockTohp)
