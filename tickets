@@ -10,8 +10,11 @@ As I work on a task, I open a branch in git, and then open a ticket. Once the ta
 ******************
 ticket: 2
 person: kevin
-status: open
+status: Closed
 title: Input and Search Request
 ---
 Doing input validation and requesting the proper results page. Input will only allow [a-zA-Z0-9] and the space character. Input expected as command line argument.
+
+Closing Notes:
+Decided to allow the ' character for searches like "Men's Sunglasses" All other's still blocked.
 ******************
