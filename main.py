@@ -84,21 +84,7 @@ def makeAmazonRequest(query, proxy):
         # We will just skip retries as its beyond the scope of this demo and we are only downloading a single url 
         print("Skipping. Connnection error")
 
-
-def extractAndSaveData(data):
-    print("starting data extraction")
-    with open('results.json', 'w') as result_file:
-        for prod in data['product']:
-            print(prod)
-            json.dump(prod, result_file)
-            result_file.write("\n")
-
-def main():
-    q = validateQueury()
-
-    proxies = initProxies()
-    proxy_pool = cycle(proxies)
-
+def requestsDriver(q, proxy_pool):
     data = None
     for i in range(1,11):
         #Get a proxy from the pool
@@ -112,4 +98,28 @@ def main():
     else:
         print("unspecified error with request")
 
+
+def extractAndSaveData(data):
+    print("starting data extraction")
+    with open('results.json', 'w') as result_file:
+        for prod in data['product']:
+            print(prod)
+            try:
+                json.dump(prod, result_file)
+                result_file.write("\n")
+            except Exception as e:
+                if "TypeError" in e:
+                    print("Network did something wierd, retrying")
+                    main();
+                else:
+                    print("File issues")
+
+def main():
+    q = validateQueury()
+
+    proxies = initProxies()
+    proxy_pool = cycle(proxies)
+    requestsDriver(q, proxy_pool)
+
+    
 main()
