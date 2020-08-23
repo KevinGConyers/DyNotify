@@ -25,14 +25,14 @@ def initProxies():
 def validateQueury():
     if len(sys.argv) < 2:
         print("Please provide a query")
-        exit()
+        sys.exit()
 
 
     check = ' '.join(sys.argv[1:])
     val_match = re.search("[^a-zA-Z0-9\s']", check)
     if val_match:
         print("Only letters, numbers spaces and \"\'\"are allowed in query")
-        exit()
+        sys.exit()
 
     query = "+".join(sys.argv[1:]) #return query with http request seperator
     return query
